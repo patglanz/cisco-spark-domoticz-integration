@@ -1,4 +1,6 @@
-# cisco-spark-domoticz-integrationReceive Domoticz home automation system/Switch messages in Cisco Spark
+# cisco-spark-domoticz-integration
+
+Receive Domoticz home automation system/Switch messages in Cisco Spark
 
 1. If you haven't done so, create a Cisco Spark account for the Domoticz system to use here: https://www.ciscospark.com
 This account should be different from your Spark account you use for use daily business. 
