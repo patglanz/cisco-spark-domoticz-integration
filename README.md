@@ -1,6 +1,8 @@
 # cisco-spark-domoticz-integration
 
 Receive Domoticz home automation system/Switch messages in Cisco Spark
+paglanz@cisco.com
+
 
 1. If you haven't done so, create a Cisco Spark account for the Domoticz system to use here: https://www.ciscospark.com
 This account should be different from your Spark account you use for use daily business. 
@@ -18,7 +20,7 @@ curl https://api.ciscospark.com/v1/messages -X POST -H "Authorization:Bearer you
 
 If everything works out okay, you should see a message pop up in your primary spark account, once you issue the command above.
 
-5. Now you can create the script on the domoticz box that sends notfications to your spark account:
+5. Now you can create the script (or use sparkmessage.sh) on the domoticz box that sends notfications to your spark account:
 Create a scripts directory in the home directory of the user pi:
 mkdir scripts
 Change directory into the scripts directory:
@@ -45,6 +47,8 @@ script:///home/pi/scripts/sparkmessage.sh "#MESSAGE"
 Please note the triple slash: script:///
 
 Once done, hit the Test button and you should see a message in Spark.
+
+7. Now you can have domoticz send a notifications once a switch changes its status. Simply click on "Switches" in the main menu of the domoticz web ui, select a switch you want to receive notifications for, click on notifications and make sure that http is checked under "active systems". Edit your custom Message for on/off and you are done.
 
 
 # cisco-spark-domoticz-integration
