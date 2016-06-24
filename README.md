@@ -27,7 +27,7 @@ Change directory into the scripts directory:
 cd scripts
 Now use nano (a fairly simple text editor) to create your script:
 nano sparkmessage.sh
-copy&paste text below into nano and edit your accesstoken+room ID
+copy&paste text below into nano and edit your accesstoken+room ID (to discover room IDs available to you, use "listrooms.sh"
 
 #!/bin/bash
 accesstoken="your_spark_access_token_here"
