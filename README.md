@@ -18,6 +18,32 @@ curl https://api.ciscospark.com/v1/messages -X POST -H "Authorization:Bearer you
 
 If everything works out okay, you should see a message pop up in your primary spark account, once you issue the command above.
 
+5. Now you can create the script on the domoticz box that sends notfications to your spark account:
+Create a scripts directory in the home directory of the user pi:
+mkdir scripts
+Change directory into the scripts directory:
+cd scripts
+Now use nano (a fairly simple text editor) to create your script:
+nano sparkmessage.sh
+copy&paste text below into nano and edit your accesstoken+room ID
+
+#!/bin/bash
+accesstoken="your_spark_access_token_here"
+roomId="the_room_id_of_the_room_you_want_domoticz_to_post_messages_to"
+curl https://api.ciscospark.com/v1/messages -X POST -H "Authorization:Bearer $accesstoken" --data "roomId=$roomId" --data "text=$1"
+
+Save your script by pressing Ctrl-O.
+Exit the editor by pressing Ctrl-X
+make the script executable: chmod 755 sparkmessage.sh
+
+6. Now the domoticz part: Open the Domoticz Web UI and go to Setup/Settings/Notifications
+Check the "Custom/HTTP/Action" checkbox and paste below line  into the URL/Action field:
+
+script:///home/pi/scripts/sparkmessage.sh "#MESSAGE" 
+
+Please note the triple slash: script:///
+
+Once done, hit the Test button and you should see a message in Spark.
 
 
 # cisco-spark-domoticz-integration
